@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+
+    <title>重庆终端</title>
+
+</head>
+
+<body>
+<button id="btn_id_card" style="padding: 20px;font-size: 18px;  background-color: #009900;">
+    读取身份证信息
+</button>
+<button id="btn_sign_auth" style="padding: 20px;font-size: 18px;  background-color: #009900;">
+    签署授权书
+</button>
+<button id="btn_ver_auth" style="padding: 20px;font-size: 18px;  background-color: #009900;">资格认证
+</button>
+
+</body>
+<script type="text/javascript">
+  const btnIdCard = document.getElementById('btn_id_card');
+  const btnSignAuth = document.getElementById('btn_sign_auth');
+  const btnVerAuth = document.getElementById('btn_ver_auth');
+   btnIdCard.addEventListener('click', function () {
+    $.getJSON('redIdCard', function (data) {
+    });
+  })
+  btnSignAuth.addEventListener('click', function () {
+    $.getJSON('signAuth', function (data) {
+    });
+  })
+  btnVerAuth.addEventListener('click', function () {
+    $.getJSON('verAuth', function (data) {
+    });
+  })
+
+
+
+
+
+
+
+
+
+</script>
+</html>
