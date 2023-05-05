@@ -14,8 +14,8 @@ import com.itextpdf.layout.element.Cell
 import com.itextpdf.layout.element.Image
 import com.itextpdf.layout.element.Paragraph
 import com.itextpdf.layout.element.Table
-import com.itextpdf.layout.property.TextAlignment
-import com.itextpdf.layout.property.UnitValue
+import com.itextpdf.layout.properties.TextAlignment
+import com.itextpdf.layout.properties.UnitValue
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
@@ -24,10 +24,12 @@ import java.util.*
 class PdfComposeToWrite {
 
     private val fontStyle = Utils.getAssetsCacheFile(Utils.getApplication(), "SimSun.ttf")
-    private val font = PdfFontFactory.createFont(fontStyle, PdfEncodings.IDENTITY_H, true)
+    private val font = PdfFontFactory.createFont(
+        fontStyle, PdfEncodings.IDENTITY_H, PdfFontFactory.EmbeddingStrategy.FORCE_EMBEDDED
+    )
 
     companion object {
-        var isSignPdf: Boolean = false
+        var isSignPdf: Boolean = true
         val defPdfFilePath get() = Utils.getApplication().cacheDir.path + "/def_authorize_book.pdf"
         val signPdfFilePath get() = Utils.getApplication().cacheDir.path + "/sign_authorize_book.pdf"
     }
